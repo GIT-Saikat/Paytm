@@ -2,7 +2,7 @@
 // import mongoose, { model, Schema } from "mongoose"
 const  mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://SaikatAdmin:3UAFgNci1VKq9AGa@cluster0.uz1qv.mongodb.net/paytm");
+mongoose.connect("/paytm");
 
 const userSchema = new mongoose.Schema({
     username:{
