@@ -35,13 +35,17 @@ const Signup = () => {
           }} label={"Password"} placeholder={"123456789"}></Input_Box>
 
           <div  className='pt-4'>
-            <Button onClick={()=>{
-              axios.post("http://localhost:3000/api/v1/user/signup",{
-                FirstName,
-                LastName,
-                Email,
-                Password
-              })
+            <Button onClick={async ()=>{
+              const  response = await axios.post("http://localhost:3000/api/v1/user/signup",{
+                firstName :FirstName,
+                lastName :LastName,
+                username :Email,
+                password :Password,
+              },)
+            .then(response => console.log("Signup Success:", response.data))
+            .catch(error => console.error("Signup Error:", error));
+              // console.log(response);
+            localStorage.setItem("token",response.data.token)
             }} label={"Sign Up"}></Button>
           </div>
           

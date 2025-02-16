@@ -6,7 +6,7 @@ const cors  = require ("cors");
 app.use(cors());
 app.use(express.json());//boddy parser
 
-app.use("api/v1",mainRouter);
+app.use("/api/v1",mainRouter);
 
 app.listen(3000);
 
