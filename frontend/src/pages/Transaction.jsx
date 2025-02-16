@@ -43,17 +43,21 @@ const Transaction = () => {
                   />
                   </div>
                   
-                  <button  onClick={()=>{
+                  <button  onClick={async ()=>{
                     console.log("Amount before sending:", amount);
+                    // console.log(localStorage.getItem("token"));
 
-                    axios.post("http://localhost:3000/api/v1/account/transfer",{
+
+                    await axios.post("http://localhost:3000/api/v1/account/transfer",{
                         to: id,
                         amount
                     },{
+                        
                         headers:{
                             Authorization : "Bearer " + localStorage.getItem("token")
                         }
                     })
+                    
                     .then(response => console.log("Response:", response.data))  // Debug response
                     .catch(error => {
                         console.log("Error Response:", error.response);

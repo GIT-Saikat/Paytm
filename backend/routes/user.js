@@ -60,6 +60,8 @@ router.post("/signup",async (req,res)=>{
         balance: 1 + Math.random()*10000
     })
 
+    console.log("Signing Token with Secret:", JWT_SECRET);
+
     const  token = jwt.sign({
         userId: dbUser._id
     },JWT_SECRET);
@@ -87,10 +89,13 @@ router.post("/signin",async (req,res)=>{
         password: body.password
     })
 
+    console.log("Signing Token with Secret:", JWT_SECRET);
+
+
     if(user && await bcrypt.compare(body.password,user.password)){
         const token =jwt.sign({
             userId:user._id
-        },JWT_SECRET,{expiresIn:"1h"});
+        },JWT_SECRET);
 
         res.json({
             token:token

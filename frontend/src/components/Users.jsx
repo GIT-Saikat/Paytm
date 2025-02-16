@@ -10,6 +10,7 @@ const Users = () => {
 
     //add debouncing
     useEffect(()=>{
+        console.log("Component Rendered");
         axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter).then(response =>{
             setUsers(response.data.user)
         })
