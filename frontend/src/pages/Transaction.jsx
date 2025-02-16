@@ -34,7 +34,7 @@ const Transaction = () => {
                   </label>
                   <input
                     onChange={(e)=>{
-                        setAmount(e.target.value());
+                        setAmount(e.target.value);
                     }}
                     type="number"
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
