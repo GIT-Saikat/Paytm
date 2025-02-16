@@ -5,12 +5,15 @@ import Input_Box from '../components/Input_Box'
 import Button from '../components/Button'
 import Button_Warning from '../components/Button_Warning'
 import axios from  "axios"
+import { useNavigate } from 'react-router-dom'
+
 
 const Signup = () => {
   const [FirstName,setFirstName]=useState();
   const [LastName,setLastName]=useState();
   const [Email,setEmail]=useState();
   const [Password,setPassword]=useState();
+  const navigate = useNavigate();  
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
         <div className="flex flex-col justify-center">
@@ -46,6 +49,7 @@ const Signup = () => {
             .catch(error => console.error("Signup Error:", error));
               // console.log(response);
             localStorage.setItem("token",response.data.token)
+            navigate("/dashboard");
             }} label={"Sign Up"}></Button>
           </div>
           
